@@ -3,7 +3,7 @@
 import fs from "node:fs";
 import { initSimnet } from "@hirosystems/clarinet-sdk";
 
-/** @type import("vitest").Environment */
+/** @type import("vitest/environments").Environment */
 export default {
   name: "clarinet",
   transformMode: "web",
@@ -47,6 +47,7 @@ export default {
 
         if (costs) {
           try {
+            // @ts-ignore
             const costs = global.costsReports.map((r) => JSON.parse(r)).flat();
             fs.writeFileSync(costsFilename, JSON.stringify(costs, null, 2));
           } catch (e) {
