@@ -6,7 +6,7 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hirosystems/vitest-environment-clarinet"
+    "url": "https://github.com/stx-labs/vitest-environment-clarinet"
   },
   "scripts": {},
   "keywords": [
