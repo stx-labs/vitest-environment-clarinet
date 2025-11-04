@@ -1,6 +1,6 @@
 {
   "name": "vitest-environment-clarinet",
-  "version": "2.6.0",
+  "version": "3.0.0",
   "description": "A vitest environment to test Clarinet projects",
   "main": "index.js",
   "type": "module",
@@ -16,10 +16,10 @@
     "stacks",
     "vitest"
   ],
-  "author": "hirosystems",
+  "author": "stacks labs",
   "license": "GPL-3.0",
   "peerDependencies": {
-    "@hirosystems/clarinet-sdk": ">=2.14.0",
-    "vitest": "^1.0.0 || ^2.0.0 || ^3.0.0 || ^4.0.0"
+    "@stacks/clarinet-sdk": ">=3.8.1",
+    "vitest": "^4.0.0"
   }
 }
