@@ -1,12 +1,12 @@
 // @ts-check
 
 import fs from "node:fs";
-import { initSimnet } from "@hirosystems/clarinet-sdk";
+import { initSimnet } from "@stacks/clarinet-sdk";
 
 /** @type import("vitest/environments").Environment */
 export default {
   name: "clarinet",
-  transformMode: "web",
+  viteEnvironment: "node",
   async setupVM() {
     const nodeVM = await import("node:vm");
     const context = nodeVM.createContext();
