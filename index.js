@@ -6,7 +6,7 @@ import { initSimnet } from "@stacks/clarinet-sdk";
 /** @type import("vitest/environments").Environment */
 export default {
   name: "clarinet",
-  viteEnvironment: "node",
+  viteEnvironment: "ssr",
   async setupVM() {
     const nodeVM = await import("node:vm");
     const context = nodeVM.createContext();
