@@ -1,12 +1,11 @@
 {
   "name": "vitest-environment-clarinet",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "A vitest environment to test Clarinet projects",
   "main": "index.js",
   "type": "module",
   "repository": {
-    "type": "git",
-    "url": "https://github.com/stx-labs/vitest-environment-clarinet"
+    "url": "git+https://github.com/stx-labs/vitest-environment-clarinet.git"
   },
   "scripts": {},
   "keywords": [
@@ -20,6 +19,6 @@
   "license": "GPL-3.0",
   "peerDependencies": {
     "@stacks/clarinet-sdk": ">=3.8.1",
-    "vitest": "^4.0.0"
+    "vitest": "^1.0.0 || ^2.0.0 || ^3.0.0 || ^4.0.0"
   }
 }

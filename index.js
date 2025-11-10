@@ -6,6 +6,11 @@ import { initSimnet } from "@stacks/clarinet-sdk";
 /** @type import("vitest/environments").Environment */
 export default {
   name: "clarinet",
+
+  // transformMode has been removed in vitest@4
+  // we keep it for backward compatibility
+  transformMode: "web",
+
   viteEnvironment: "ssr",
   async setupVM() {
     const nodeVM = await import("node:vm");
