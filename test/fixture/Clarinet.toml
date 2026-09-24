@@ -1,0 +1,8 @@
+[project]
+name = "fixture"
+requirements = []
+
+[contracts.counter]
+path = "contracts/counter.clar"
+clarity_version = 6
+epoch = "latest"
