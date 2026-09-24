@@ -1,0 +1,20 @@
+# Supply-chain hardening, see https://pnpm.io/supply-chain-security
+
+# Only install versions published at least 7 days ago (in minutes).
+# Setting it explicitly also makes it strict: resolution fails rather than
+# falling back to a newer version.
+minimumReleaseAge: 10080
+
+# Fail if a package's trust evidence (trusted publisher, provenance) is weaker
+# than for an earlier release.
+trustPolicy: no-downgrade
+
+# Transitive dependencies must come from the registry, not git or tarball URLs.
+blockExoticSubdeps: true
+
+# Dependency lifecycle scripts are blocked unless allowed here.
+strictDepBuilds: true
+allowBuilds: {}
+
+# Refuse to install with an unsupported Node.js or pnpm version.
+engineStrict: true
