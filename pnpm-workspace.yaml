@@ -1,4 +1,6 @@
-# Supply-chain hardening, see https://pnpm.io/supply-chain-security
+# Supply-chain hardening on top of pnpm's defaults (exotic transitive sources
+# and unreviewed build scripts are already blocked).
+# See https://pnpm.io/supply-chain-security
 
 # Only install versions published at least 7 days ago (in minutes).
 # Setting it explicitly also makes it strict: resolution fails rather than
@@ -9,12 +11,10 @@ minimumReleaseAge: 10080
 # than for an earlier release.
 trustPolicy: no-downgrade
 
-# Transitive dependencies must come from the registry, not git or tarball URLs.
-blockExoticSubdeps: true
-
-# Dependency lifecycle scripts are blocked unless allowed here.
-strictDepBuilds: true
-allowBuilds: {}
-
 # Refuse to install with an unsupported Node.js or pnpm version.
 engineStrict: true
+
+allowBuilds:
+  # Pulled in by vitest 3 and 4 (tested in CI). Its postinstall only verifies
+  # the platform binary, which works without it.
+  esbuild: false

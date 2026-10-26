@@ -10,8 +10,8 @@ and interact with smart contracts.
 
 ## Development
 
-This project uses [pnpm](https://pnpm.io). The version is pinned in `package.json`, so
-[Corepack](https://nodejs.org/api/corepack.html) or `pnpm` itself selects it automatically.
+This project uses [pnpm](https://pnpm.io). Any recent pnpm switches to the version pinned in
+`package.json` automatically.
 
 ```sh
 pnpm install
