@@ -12,7 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        # 5 is the locked version; older majors are still in the peer range.
         vitest: ['3', '4', '5']
     steps:
       - name: Checkout
