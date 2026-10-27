@@ -128,3 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Clarinet fixture artifacts
+test/fixture/deployments/
+test/fixture/lcov.info
+test/fixture/costs-reports.json

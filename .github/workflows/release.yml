@@ -4,46 +4,66 @@ on:
   push:
     branches: [main]
 
+permissions: {}
+
 jobs:
+  test:
+    uses: $/.github/workflows/ci.yml
+    permissions:
+      contents: read
+
   release:
+    needs: test
     runs-on: ubuntu-latest
     permissions:
       contents: write
       id-token: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          node-version: '24'
-          registry-url: 'https://registry.npmjs.org'
+          persist-credentials: false
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+
+      # No dependency cache here: a poisoned cache must not reach the publish job.
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '26'
 
       - name: Get package version
-        id: package-version
-        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+        id: package
+        run: echo "version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
 
-      - name: Check if release exists
-        id: check-release
+      # Each step checks its own target, so a failed run can simply be re-run.
+      - name: Check what is already released
+        id: check
         run: |
-          if gh release view "v${{ steps.package-version.outputs.version }}" &> /dev/null; then
-            echo "exists=true" >> $GITHUB_OUTPUT
-          else
-            echo "exists=false" >> $GITHUB_OUTPUT
+          if pnpm view "vitest-environment-clarinet@$VERSION" version &> /dev/null; then
+            echo "published=true" >> "$GITHUB_OUTPUT"
+          fi
+          if gh release view "v$VERSION" --repo "$GITHUB_REPOSITORY" &> /dev/null; then
+            echo "released=true" >> "$GITHUB_OUTPUT"
           fi
         env:
+          VERSION: ${{ steps.package.outputs.version }}
           GH_TOKEN: ${{ github.token }}
+
+      # Trusted publishing (OIDC) authenticates and adds provenance automatically.
+      - name: Publish to npm
+        if: steps.check.outputs.published != 'true'
+        run: pnpm publish --access public --no-git-checks
 
       - name: Create release
-        if: steps.check-release.outputs.exists == 'false'
+        if: steps.check.outputs.released != 'true'
         run: |
-          gh release create "v${{ steps.package-version.outputs.version }}" \
-            --title "v${{ steps.package-version.outputs.version }}" \
+          gh release create "v$VERSION" \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
+            --title "v$VERSION" \
             --generate-notes
         env:
+          VERSION: ${{ steps.package.outputs.version }}
           GH_TOKEN: ${{ github.token }}
-
-      - name: Publish to npm
-        if: steps.check-release.outputs.exists == 'false'
-        run: npm publish --access public
