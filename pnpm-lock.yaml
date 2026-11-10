@@ -167,14 +167,14 @@ importers:
   .:
     devDependencies:
       '@stacks/clarinet-sdk':
-        specifier: ^3.25.0
-        version: 3.25.0
+        specifier: ^4.0.0
+        version: 4.0.0
       '@stacks/transactions':
         specifier: ^7.6.0
         version: 7.6.0
       vitest:
         specifier: ^5.0.5
-        version: 5.0.5(vite@8.3.4)
+        version: 5.1.0(vite@8.3.4)
 
 packages:
 
@@ -296,11 +296,11 @@ packages:
   '@rolldown/pluginutils@1.0.1':
     resolution: {integrity: sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw==}
 
-  '@stacks/clarinet-sdk-wasm@3.25.0':
-    resolution: {integrity: sha512-HcaYlx3//Kvm/NYnGGcBha/LvWo8bHRWYbHl5g3xYQyqOUCUCMubti1KtrlYi8G+9bBEjX/xT0c5O3GAHenJ+Q==}
+  '@stacks/clarinet-sdk-wasm@4.0.0':
+    resolution: {integrity: sha512-depNs7/BRpyscd5IK7s9BBKdRPs1Y1S3KZfMOWxibez6Mp2CLVGhVYC028jiG3U7NAlBQK1RruJBibke8Am+pQ==}
 
-  '@stacks/clarinet-sdk@3.25.0':
-    resolution: {integrity: sha512-59H4xTMka9hvpw8mos0+nqYbgxvYdTvLZ8aCfgblv5deyOdntrv5iWNFiszdghdD6M7or9pbZk7BDi48DxmVmA==}
+  '@stacks/clarinet-sdk@4.0.0':
+    resolution: {integrity: sha512-3WlUyJkSecAm3Nw1yx9s5YM7i0Y578T8hXt7YXFzckHhBBapWv6IhHaZdfQxocwYQgS9u9K/Py1k9N2z7KYx/w==}
     engines: {node: '>=20'}
 
   '@stacks/common@7.6.0':
@@ -321,8 +321,8 @@ packages:
   '@types/estree@1.0.9':
     resolution: {integrity: sha512-GhdPgy1el4/ImP05X05Uw4cw2/M93BCUmnEvWZNStlCzEKME4Fkk+YpoA5OiHNQmoS7Cafb8Xa3Pya8m1Qrzeg==}
 
-  '@vitest/mocker@5.0.5':
-    resolution: {integrity: sha512-xLL3lkDegJZw+MGoGaCCsFayDZthGgpAtr3Vziyfc4p7xH89K7KRPcRBBh/kEYm0Aqkt5DtTmkYpBtRV/FrHZg==}
+  '@vitest/mocker@5.1.0':
+    resolution: {integrity: sha512-5umB9/jlWcqVS6fsrFmv5Gdnpu6wAUio/lEOwAmvB7v+lFo/IW2B9FhAD0p19GCULTgMzLCdUmuCDCnAzWgppQ==}
     peerDependencies:
       msw: ^2.4.9 || ^3.0.0
       vite: ^6.0.0 || ^7.0.0 || ^8.0.0
@@ -332,8 +332,8 @@ packages:
       vite:
         optional: true
 
-  '@vitest/spy@5.0.5':
-    resolution: {integrity: sha512-lwJRExuH417257Q5wv9QYugN9IMJkoxcrKrYxGPQkBzl7wlNpTUxD/5yNX4ESKVUIShKPgkGchYPFMWOOk0wzw==}
+  '@vitest/spy@5.1.0':
+    resolution: {integrity: sha512-2DPO5OMHWKrBngC+fCmTQqemNF0gidRhp3lxbBmRhW+M1XJrfgPpqNqWVevXtn2f2ufD5ZaR1B6B641aAlcX5A==}
 
   assertion-error@2.0.1:
     resolution: {integrity: sha512-Izi8RQcffqCeNVgFigKli1ssklIbpHnCYc6AknXGYoB6grJqyeby7jv12JUQgmTAnIDnbck1uxksT4dzN3PWBA==}
@@ -560,20 +560,20 @@ packages:
       yaml:
         optional: true
 
-  vitest@5.0.5:
-    resolution: {integrity: sha512-cPODOMF8YnkiiYtDdHo6n4wWmBrOBBbOIYH2d33M4l3CdNn72h+qMmO6uXffUN6A5AZFXNND/d+krS9mgkXRfg==}
+  vitest@5.1.0:
+    resolution: {integrity: sha512-MzmNFnrwa8v8lF1bLxw3UJ4EREwVOVb75VqJZmUDRjJ6EluK/x9th7qTbaeDk41WxE1GxWqmTXcdsfobfH5sOA==}
     engines: {node: ^22.12.0 || ^24.0.0 || >=26.0.0}
     hasBin: true
     peerDependencies:
       '@edge-runtime/vm': '*'
       '@opentelemetry/api': ^1.9.0
       '@types/node': ^22.0.0 || >=24.0.0
-      '@vitest/browser-playwright': 5.0.5
-      '@vitest/browser-preview': 5.0.5
+      '@vitest/browser-playwright': 5.1.0
+      '@vitest/browser-preview': 5.1.0
       '@vitest/browser-webdriverio': ^5.0.0-beta.5 || >=5.0.0
-      '@vitest/coverage-istanbul': 5.0.5
-      '@vitest/coverage-v8': 5.0.5
-      '@vitest/ui': 5.0.5
+      '@vitest/coverage-istanbul': 5.1.0
+      '@vitest/coverage-v8': 5.1.0
+      '@vitest/ui': 5.1.0
       happy-dom: '*'
       jsdom: '*'
       vite: ^6.4.0 || ^7.0.0 || ^8.0.0
@@ -676,11 +676,11 @@ snapshots:
 
   '@rolldown/pluginutils@1.0.1': {}
 
-  '@stacks/clarinet-sdk-wasm@3.25.0': {}
+  '@stacks/clarinet-sdk-wasm@4.0.0': {}
 
-  '@stacks/clarinet-sdk@3.25.0':
+  '@stacks/clarinet-sdk@4.0.0':
     dependencies:
-      '@stacks/clarinet-sdk-wasm': 3.25.0
+      '@stacks/clarinet-sdk-wasm': 4.0.0
       '@stacks/transactions': 7.6.0
     transitivePeerDependencies:
       - encoding
@@ -714,16 +714,16 @@ snapshots:
 
   '@types/estree@1.0.9': {}
 
-  '@vitest/mocker@5.0.5(vite@8.3.4)':
+  '@vitest/mocker@5.1.0(vite@8.3.4)':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
-      '@vitest/spy': 5.0.5
+      '@vitest/spy': 5.1.0
       estree-walker: 3.0.3
       magic-string: 1.4.3
     optionalDependencies:
       vite: 8.3.4
 
-  '@vitest/spy@5.0.5': {}
+  '@vitest/spy@5.1.0': {}
 
   assertion-error@2.0.1: {}
 
@@ -878,10 +878,10 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  vitest@5.0.5(vite@8.3.4):
+  vitest@5.1.0(vite@8.3.4):
     dependencies:
       '@types/chai': 5.2.3
-      '@vitest/mocker': 5.0.5(vite@8.3.4)
+      '@vitest/mocker': 5.1.0(vite@8.3.4)
       chai: 6.3.0
       es-module-lexer: 2.3.2
       expect-type: 1.4.0
